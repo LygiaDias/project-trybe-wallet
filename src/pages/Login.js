@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loginUser } from '../actions';
@@ -12,8 +12,6 @@ class Login extends React.Component {
       email: '',
       senha: '',
       disabledButton: true,
-      redirect: false,
-
     };
 
     this.disabledVerification = this.disabledVerification.bind(this);
@@ -43,15 +41,14 @@ class Login extends React.Component {
   }
 
   handleClick() {
-    const { loginProps } = this.props;
+    const { loginProps, history } = this.props;
     const { email } = this.state;
     loginProps(email);
-    this.setState({ redirect: true });
+    history.push('/carteira');
   }
 
   render() {
-    const { email, senha, disabledButton, redirect } = this.state;
-    if (redirect) { return <Redirect to="/carteira" />; }
+    const { email, senha, disabledButton } = this.state;
 
     return (
       <form>
@@ -77,13 +74,15 @@ class Login extends React.Component {
           />
         </label>
 
-        <button
-          type="button"
-          disabled={ disabledButton }
-          onClick={ this.handleClick }
-        >
-          Entrar
-        </button>
+        <Link to="/carteira">
+          <button
+            type="button"
+            disabled={ disabledButton }
+            onClick={ this.handleClick }
+          >
+            Entrar
+          </button>
+        </Link>
 
       </form>
     );
@@ -96,5 +95,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 Login.propTypes = {
   loginProps: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 export default connect(null, mapDispatchToProps)(Login);

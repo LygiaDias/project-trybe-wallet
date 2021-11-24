@@ -1,5 +1,6 @@
 export const EMAIL = 'EMAIL';
 export const EXPENSE = 'EXPENSE';
+export const DELETE = 'DELETE';
 
 export const loginUser = (payload) => (
   {
@@ -18,3 +19,9 @@ export const exchangeAPI = (payload) => async (dispach) => {
   const json = await response.json();
   dispach(expenceUser({ ...payload, exchangeRates: json }));
 };
+
+export const deleteExpense = (id) => (
+  {
+    type: DELETE,
+    id,
+  });

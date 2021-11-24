@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { deleteExpense } from '../actions';
 
 class TableExpenses extends React.Component {
   render() {
-    const { expenses } = this.props;
+    const { expenses, deleteLine } = this.props;
     return (
       <table>
         <thead>
@@ -34,6 +35,17 @@ class TableExpenses extends React.Component {
                 <td>{Number(ask).toFixed(2)}</td>
                 <td>{(Number(value) * Number(ask)).toFixed(2)}</td>
                 <td> Real </td>
+                <td>
+                  {' '}
+                  <button
+                    type="button"
+                    data-testid="delete-btn"
+                    onClick={ () => deleteLine(id) }
+                  >
+                    Excluir
+                  </button>
+
+                </td>
               </tr>
             </tbody>
           );
@@ -46,8 +58,13 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(TableExpenses);
+const mapDispachToProps = (dispatch) => ({
+  deleteLine: (id) => dispatch(deleteExpense(id)),
+});
+
+export default connect(mapStateToProps, mapDispachToProps)(TableExpenses);
 
 TableExpenses.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deleteLine: PropTypes.func.isRequired,
 };
