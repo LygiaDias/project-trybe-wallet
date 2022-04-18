@@ -30,7 +30,7 @@ class InputSelect extends React.Component {
     const { tags, payType, exchanges } = this.state;
     const { onChangeFunction, state: { currency, method, tag } } = this.props;
     return (
-      <div>
+      <div className="div">
         <label htmlFor="currency">
           Moeda:
           <select
@@ -39,6 +39,7 @@ class InputSelect extends React.Component {
             onChange={ (event) => onChangeFunction(event) }
             name="currency"
             id="currency"
+            className="moeda"
           >
             {exchanges.map((curr) => (<option key={ curr } value={ curr }>{curr}</option>
             ))}
@@ -52,6 +53,7 @@ class InputSelect extends React.Component {
             onChange={ (event) => onChangeFunction(event) }
             name="method"
             id="method"
+            className="metodo"
           >
             {payType.map((pay) => (<option key={ pay } value={ pay }>{pay}</option>))}
           </select>
@@ -64,6 +66,8 @@ class InputSelect extends React.Component {
             onChange={ (event) => onChangeFunction(event) }
             name="tag"
             id="tag"
+            className="tag"
+
           >
             {tags.map((tg) => (<option key={ tg } value={ tg }>{tg}</option>))}
           </select>

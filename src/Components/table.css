@@ -1,0 +1,75 @@
+/* stylelint-disable rule-empty-line-before */
+
+/* stylelint-disable order/properties-alphabetical-order */
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(221, 148, 11);
+}
+
+td , th {
+  border: 2px solid rgba(32, 32, 32, 0.867);
+  padding: 10px;
+  text-align: center;
+}
+
+.input-name {
+  background-color: black;
+  border: 4px solid rgba(133, 103, 216, 0.863);
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 230px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.moeda {
+  background-color: rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgb(3, 1, 1);
+  margin: 5px;
+}
+
+.metodo {
+  background-color: rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgb(3, 1, 1);
+  margin: 5px;
+}
+
+.tag {
+  background-color: rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgb(3, 1, 1);
+  margin: 5px;
+}
+
+.descricao {
+  background-color: rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgb(3, 1, 1);
+  margin: 5px;
+}
+
+.valor {
+  background-color: rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgb(3, 1, 1);
+  margin: 5px;
+}
+
+.button {
+  background-color:rgb(221, 148, 11);
+  border: 4px solid rgba(235, 74, 11, 0.863);
+  color: rgba(8, 6, 6, 0.863);
+  left: 600px;
+  position: absolute;
+  top: 175px;
+}
+.div {
+  display: flex;
+  align-items: center;
+}

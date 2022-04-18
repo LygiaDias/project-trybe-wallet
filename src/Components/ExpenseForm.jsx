@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { exchangeAPI } from '../actions';
 import InputSelect from './InputSelect';
+import './table.css';
 
 class ExpenseForm extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class ExpenseForm extends React.Component {
             type="number"
             name="value"
             id="value"
+            className="valor"
           />
         </label>
 
@@ -51,11 +53,13 @@ class ExpenseForm extends React.Component {
             type="text"
             name="description"
             id="description"
+            className="descricao"
           />
         </label>
         <InputSelect onChangeFunction={ this.handleChange } state={ { ...this.state } } />
         <button
           type="button"
+          className="button"
           onClick={ () => {
             walletUser({ ...this.state });
             this.setState({

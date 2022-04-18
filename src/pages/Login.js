@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loginUser } from '../actions';
+import logo from '../images/pato.jpeg';
+import wallet from '../images/wallet.svg';
+import './login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -51,40 +54,48 @@ class Login extends React.Component {
     const { email, senha, disabledButton } = this.state;
 
     return (
-      <form>
-        <label htmlFor="email">
-          Email
-          <input
-            type="email"
-            name="email"
-            data-testid="email-input"
-            onChange={ this.handleChange }
-            value={ email }
-          />
-        </label>
+      <>
+        <img src={ logo } alt="logos" className="imagem" />
+        <img src={ wallet } alt="logos" className="wallet" />
+        <form className="form">
+          <label htmlFor="email">
+            Email:
+            <input
+              type="email"
+              name="email"
+              data-testid="email-input"
+              onChange={ this.handleChange }
+              value={ email }
+              className="email"
+            />
+          </label>
 
-        <label htmlFor="password">
-          Senha:
-          <input
-            type="password"
-            name="senha"
-            data-testid="password-input"
-            onChange={ this.handleChange }
-            value={ senha }
-          />
-        </label>
+          <label htmlFor="password">
+            Senha:
+            <input
+              type="password"
+              name="senha"
+              data-testid="password-input"
+              onChange={ this.handleChange }
+              value={ senha }
+              className="senha"
+            />
+          </label>
 
-        <Link to="/carteira">
-          <button
-            type="button"
-            disabled={ disabledButton }
-            onClick={ this.handleClick }
-          >
-            Entrar
-          </button>
-        </Link>
+          <Link to="/carteira">
+            <button
+              type="button"
+              disabled={ disabledButton }
+              onClick={ this.handleClick }
+              className="buttonLogin"
+            >
+              Entrar
+            </button>
+          </Link>
 
-      </form>
+        </form>
+
+      </>
     );
   }
 }
